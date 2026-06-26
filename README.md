@@ -70,7 +70,7 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-### Using nano-scBERT in Python
+### Using nano-Geneformer in Python
 #### Generate Cell Embeddings from Raw-count `.h5ad` with nano-Geneformer (Geneformer-V2-316M)
 ```python
 import torch
