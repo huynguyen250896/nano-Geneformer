@@ -31,7 +31,7 @@ Available Models:
 If you know of another single-cell foundation model that should be included, feel free to open an issue or send me a message. To keep the collection focused on established methods, I currently only plan to include models that have been published in peer-reviewed journals.
 
 ## Benchmark 
-I carefully benchmarked nano-Geneformer across different settings to give future users confidence in adopting nano-Geneformer as a drop-in alternative to the official implementation. Full benchmark details are available in [benchmark_geneformer_vs_nano.ipynb](benchmark_Geneformer_vs_nano.ipynb).
+I carefully benchmarked nano-Geneformer across different settings to give future users confidence in adopting nano-Geneformer as a drop-in alternative to the official implementation. Full benchmark details are available in [benchmark_geneformer_vs_nano.ipynb](https://github.com/huynguyen250896/nano-Geneformer/blob/main/benchmark_geneformer_vs_nano.ipynb).
 
 #### Inference Runtime
 
@@ -78,7 +78,13 @@ The PCA spectrum and pairwise distance structure are nearly identical between na
 > Benchmarked on a single NVIDIA A100 (80 GB) GPU with batch size 256 on the Pancreas dataset (15,681 cells).
 
 ## Install
+1. Install Git LFS (required for downloading pretrained checkpoints and tokenizer assets).
+2. Clone the repository.
+3. Install the Python dependencies.
+
 ```bash
+git lfs install
+
 git clone https://github.com/huynguyen250896/nano-Geneformer.git
 cd nano-Geneformer
 
