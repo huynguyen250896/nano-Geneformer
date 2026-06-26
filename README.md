@@ -60,14 +60,12 @@ nano-Geneformer reproduces the original Geneformer embedding space almost exactl
 |  | Mean absolute difference | **2.83e-05** |
 |  | Maximum absolute difference | **1.21e-03** |
 |  | Distance correlation | **0.9999990** |
-| --- | --- | ---: |
 | **Geneformer-V2-104M** | Mean cosine similarity | **1.0000000** |
 |  | Median cosine similarity | **1.0000000** |
 |  | Minimum cosine similarity | **0.9999993** |
 |  | Mean absolute difference | **6.28e-05** |
 |  | Maximum absolute difference | **1.31e-03** |
 |  | Distance correlation | **0.99999997** |
-| --- | --- | ---: |
 | **Geneformer-V2-316M** | Mean cosine similarity | **1.0000000** |
 |  | Median cosine similarity | **0.9999999** |
 |  | Minimum cosine similarity | **0.9999995** |
