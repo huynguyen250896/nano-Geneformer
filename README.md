@@ -33,9 +33,9 @@ If you know of another single-cell foundation model that should be included, fee
 ## Benchmark 
 I carefully benchmarked nano-Geneformer across different settings to give future users confidence in adopting nano-Geneformer as a drop-in alternative to the official implementation. Full benchmark details are available in [benchmark_geneformer_vs_nano.ipynb](https://github.com/huynguyen250896/nano-Geneformer/blob/main/benchmark_geneformer_vs_nano.ipynb).
 
-#### Inference Runtime
+#### Inference Performance
 
-nano-Geneformer faithfully reproduces the official Geneformer implementation while delivering up to **1.15× faster inference** and reducing **peak GPU memory by up to 56.8%**, enabling substantially more memory-efficient inference for larger Geneformer models.
+nano-Geneformer faithfully reproduces the official Geneformer implementation while delivering up to **1.15× faster inference** and reducing **peak GPU memory by up to 56.8%**, enabling larger batch sizes (more cells processed simultaneously per forward pass), which can further improve throughput on memory-constrained GPUs.
 
 
 | Model | Total (15,681 cells) | Per cell | Throughput | Peak GPU | % Reduced Peak GPU | Speedup |
