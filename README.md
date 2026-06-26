@@ -15,7 +15,7 @@ Single-cell foundation models (scFMs) are one of the most promising directions i
 
 nano-Geneformer is part of **nano-scFMs**, a collection of lightweight reimplementations of popular single-cell foundation models. The goal is to make state-of-the-art scFMs easier to understand, extend, benchmark, and use as educational resources.
 
-All repositories are implemented in pure, modern PyTorch and follow a consistent coding style, making it straightforward to install, compare, and experiment with different models using the same environment and shared [requirements file](https://github.com/huynguyen250896/nano-Geneformer/blob/main/requirements.txt)). 
+All repositories are implemented in pure, modern PyTorch and follow a consistent coding style, making it straightforward to install, compare, and experiment with different models using the same environment and shared [requirements file](https://github.com/huynguyen250896/nano-Geneformer/blob/main/requirements.txt). 
 
 Available Models:
 
