@@ -8,7 +8,7 @@ nano-Geneformer faithfully reproduces the original Geneformer architecture in a 
 - Faster inference with modern PyTorch optimizations
 - A codebase suitable for experimentation, fine-tuning, and future training from scratch
 
-<!-- ![figure1](assets/umap_nano_Geneformer_vs_Geneformer.png) -->
+![figure1](assets/umap_nano_geneformer_vs_geneformer.png)
 
 ## The nano-scFMs Project
 Single-cell foundation models (scFMs) are one of the most promising directions in AI for biology, yet many existing repositories remain difficult to read, extend, benchmark, or use as educational resources.
@@ -31,32 +31,51 @@ Available Models:
 If you know of another single-cell foundation model that should be included, feel free to open an issue or send me a message. To keep the collection focused on established methods, I currently only plan to include models that have been published in peer-reviewed journals.
 
 ## Benchmark 
-I carefully benchmarked nano-Geneformer across different settings to give future users confidence in adopting nano-Geneformer as a drop-in alternative to the official implementation. Full benchmark details are available in [benchmark_Geneformer_vs_nano.ipynb](benchmark_Geneformer_vs_nano.ipynb).
+I carefully benchmarked nano-Geneformer across different settings to give future users confidence in adopting nano-Geneformer as a drop-in alternative to the official implementation. Full benchmark details are available in [benchmark_geneformer_vs_nano.ipynb](benchmark_Geneformer_vs_nano.ipynb).
 
 #### Inference Runtime
-TBD...
-<!-- nano-Geneformer achieves roughly **2.5× faster inference** than the original implementation.
 
-| Model      | Total (4,146 cells) | Per cell | Throughput  | Speedup |
-| ---------- | -------------------- | -------- | ----------- | ------- |
-| nano-Geneformer | **53.71 s**         | **12.955 ms**  | **77.19 cells/s** | **2.5×**   |
-| Geneformer      | 132.64 s            | 31.992 ms| 31.25 cells/s | 1.00×   | -->
+nano-Geneformer faithfully reproduces the official Geneformer implementation while delivering up to **1.15× faster inference** and reducing **peak GPU memory by up to 56.8%**, enabling substantially more memory-efficient inference for larger Geneformer models.
+
+
+| Model | Total (15,681 cells) | Per cell | Throughput | Peak GPU | % Reduced Peak GPU | Speedup |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| **nano-Geneformer-V1** | **3.65 s** | **0.233 ms** | **4295.03 cells/s** | **15.398 GB** | **8.7%** | **1.15×** |
+| Geneformer-V1 | 4.19 s | 0.267 ms | 3742.51 cells/s | 16.860 GB | — | 1.00× |
+| **nano-Geneformer-V2-104M** | **22.23 s** | **1.417 ms** | **705.52 cells/s** | **14.691 GB** | **39.8%** | **1.06×** |
+| Geneformer-V2-104M | 23.56 s | 1.502 ms | 665.62 cells/s | 24.420 GB | — | 1.00× |
+| **nano-Geneformer-V2-316M** | **56.51 s** | **3.604 ms** | **277.47 cells/s** | **17.094 GB** | **56.8%** | **1.06×** |
+| Geneformer-V2-316M | 60.07 s | 3.831 ms | 261.06 cells/s | 39.602 GB | — | 1.00× |
 
 #### Cell-level Embedding Reproducibility
-TBD...
-<!-- nano-Geneformer reproduces the original Geneformer embedding space almost exactly, preserving both local and global structure.
+nano-Geneformer reproduces the original Geneformer embedding space almost exactly, preserving both local and global structure.
 
-![figure2](assets/umap_overlay_nano_Geneformer_vs_Geneformer.png)
+![figure2](assets/umap_overlay_nano_geneformer_vs_geneformer.png)
 
-| Metric | Value |
-|----------|----------:|
-| Mean cosine similarity | **1.0000** |
-| Median cosine similarity | **1.0000** |
-| Minimum cosine similarity | **0.9999998** |
-| Mean absolute difference | **2.74e-06** |
-| Distance correlation | **0.9999998** |
+| Model | Metric | Value |
+| --- | --- | ---: |
+| **Geneformer-V1** | Mean cosine similarity | **0.9999999** |
+|  | Median cosine similarity | **0.9999999** |
+|  | Minimum cosine similarity | **0.9999908** |
+|  | Mean absolute difference | **2.83e-05** |
+|  | Maximum absolute difference | **1.21e-03** |
+|  | Distance correlation | **0.9999990** |
+| --- | --- | ---: |
+| **Geneformer-V2-104M** | Mean cosine similarity | **1.0000000** |
+|  | Median cosine similarity | **1.0000000** |
+|  | Minimum cosine similarity | **0.9999993** |
+|  | Mean absolute difference | **6.28e-05** |
+|  | Maximum absolute difference | **1.31e-03** |
+|  | Distance correlation | **0.99999997** |
+| --- | --- | ---: |
+| **Geneformer-V2-316M** | Mean cosine similarity | **1.0000000** |
+|  | Median cosine similarity | **0.9999999** |
+|  | Minimum cosine similarity | **0.9999995** |
+|  | Mean absolute difference | **5.25e-05** |
+|  | Maximum absolute difference | **7.41e-04** |
+|  | Distance correlation | **0.99999986** |
 
-The PCA spectrum and pairwise distance structure are nearly identical between nano-Geneformer and the original implementation. -->
+The PCA spectrum and pairwise distance structure are nearly identical between nano-Geneformer and the original implementation.
 
 > Benchmarked on a single NVIDIA A100 (80 GB) GPU with batch size 256 on the Pancreas dataset (15,681 cells).
 
@@ -88,7 +107,7 @@ model_name = "Geneformer-V2-316M"
 
 # Load the pretrained model and switch to evaluation mode.
 from model import GeneformerForMaskedLM
-model = GeneformerForMaskedLM.from_pretrained(model_name).to(device)
+model = GeneformerForMaskedLM.from_pretrained(model_name, compile_model=False).to(device)
 model.eval()
 
 # Tokenize the raw-count .h5ad file 
@@ -110,7 +129,8 @@ python tasks/embedding.py \
   --model Geneformer-V1 \
   --batch-size 256 \
   --save-tokenized pancreas_v1_tokenized.pt \
-  --mode raw
+  --mode raw \
+  --no_compile
 ```
 
 #### Generate Cell Embeddings from tokenized `.h5ad` with nano-Geneformer (Geneformer-V2-104M)
@@ -120,7 +140,8 @@ python tasks/embedding.py \
   --output geneformer_v2_104M_embeddings_model_only.npy \
   --model Geneformer-V2-104M \
   --batch-size 256 \
-  --mode tokenized 
+  --mode tokenized \
+  --no_compile
 ```
 
 ## Roadmap
