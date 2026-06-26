@@ -35,7 +35,7 @@ I carefully benchmarked nano-Geneformer across different settings to give future
 
 #### Inference Performance
 
-nano-Geneformer faithfully reproduces the official Geneformer implementation while delivering up to **1.15× faster inference** and reducing **peak GPU memory by up to 56.8%**, enabling larger batch sizes (more cells processed simultaneously per forward pass), which can further improve throughput on memory-constrained GPUs.
+nano-Geneformer reduces **peak GPU memory by up to 56.8%** for the largest Geneformer model while achieving **1.06–1.15× faster inference**. This enables larger inference batch sizes (i.e., more cells processed per forward pass) and allows deployment on GPUs with less VRAM.
 
 
 | Model | Total (15,681 cells) | Per cell | Throughput | Peak GPU | % Reduced Peak GPU | Speedup |
