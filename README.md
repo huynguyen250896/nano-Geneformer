@@ -21,7 +21,7 @@ Available Models:
 
 - [X] [nano-scBERT](https://github.com/huynguyen250896/nano-scBERT)
 - [X] nano-Geneformer
-- [ ] [nano-CellFM](https://github.com/huynguyen250896/nano-CellFM)
+- [X] [nano-CellFM](https://github.com/huynguyen250896/nano-CellFM)
 - [ ] nano-scFoundation
 - [ ] nano-scPRINT
 
