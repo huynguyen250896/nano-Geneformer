@@ -21,9 +21,8 @@ Available Models:
 
 - [X] [nano-scBERT](https://github.com/huynguyen250896/nano-scBERT)
 - [X] nano-Geneformer
-- [ ] nano-scFoundation
 - [ ] nano-CellFM
-- [ ] nano-UCE
+- [ ] nano-scFoundation
 - [ ] nano-scPRINT
 
 **NOTE:** Danqi Liao has already created an excellent minimal implementation of scGPT, so I chose not to duplicate that effort. If you're looking for a lightweight version of scGPT, check out [nano-scGPT](https://github.com/Danqi7/nano-scGPT).
