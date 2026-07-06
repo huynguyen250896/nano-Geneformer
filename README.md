@@ -1,35 +1,14 @@
 # nano-Geneformer
 
-A minimal, fast, and faithful reimplementation of [Geneformer](https://huggingface.co/ctheodoris/Geneformer/tree/main/geneformer) for single-cell foundation model inference, supporting all official Geneformer checkpoints (Geneformer-V1, Geneformer-V2-104M, Geneformer-V2-104M_CLcancer, and Geneformer-V2-316M), with planned support for fine-tuning and training from scratch.
+nano-Geneformer is a minimal, fast, and faithful reimplementation of [Geneformer](https://huggingface.co/ctheodoris/Geneformer/tree/main/geneformer) for single-cell foundation model inference. It supports all official Geneformer checkpoints, including Geneformer-V1, Geneformer-V2-104M, Geneformer-V2-104M_CLcancer, and Geneformer-V2-316M. nano-Geneformer is part of [nano-scFMs](https://github.com/huynguyen250896/nano-scFMs), a collection of lightweight PyTorch reimplementations of single-cell foundation models.
 
-nano-Geneformer faithfully reproduces the original Geneformer architecture in a lightweight, easy-to-read codebase. nano-Geneformer aims to provide:
+![figure1](assets/umap_nano_geneformer_vs_geneformer.png)
+
+nano-Geneformer aims to provide:
 - A clean and minimal implementation
 - Faithful reproduction of the original Geneformer architecture
 - Faster inference with modern PyTorch optimizations
 - A codebase suitable for experimentation, fine-tuning, and future training from scratch
-
-![figure1](assets/umap_nano_geneformer_vs_geneformer.png)
-
-## The nano-scFMs Project
-Single-cell foundation models (scFMs) are one of the most promising directions in AI for biology, yet many existing repositories remain difficult to read, extend, benchmark, or use as educational resources.
-
-nano-Geneformer is part of **nano-scFMs**, a collection of lightweight reimplementations of popular single-cell foundation models. The goal is to make state-of-the-art scFMs easier to understand, extend, benchmark, and use as educational resources.
-
-All repositories are implemented in pure, modern PyTorch and follow a consistent coding style, making it straightforward to install, compare, and experiment with different models using the same environment and shared [requirements file](https://github.com/huynguyen250896/nano-Geneformer/blob/main/requirements.txt). 
-
-Available Models:
-
-- [X] [nano-scBERT](https://github.com/huynguyen250896/nano-scBERT)
-- [X] nano-Geneformer
-- [X] [nano-CellFM](https://github.com/huynguyen250896/nano-CellFM)
-- [ ] nano-scFoundation
-- [ ] nano-scPRINT
-- [ ] nano-TranscriptFormer
-- [ ] nano-Nicheformer
-
-**NOTE:** Danqi Liao has already created an excellent minimal implementation of scGPT, so I chose not to duplicate that effort. If you're looking for a lightweight version of scGPT, check out [nano-scGPT](https://github.com/Danqi7/nano-scGPT).
-
-If you know of another single-cell foundation model that should be included, feel free to open an issue or send me a message. To keep the collection focused on established methods, I currently only plan to include models that have been published in peer-reviewed journals.
 
 ## Benchmark 
 I carefully benchmarked nano-Geneformer across different settings to give future users confidence in adopting nano-Geneformer as a drop-in alternative to the official implementation. Full benchmark details are available in [benchmark_geneformer_vs_nano.ipynb](https://github.com/huynguyen250896/nano-Geneformer/blob/main/benchmark_geneformer_vs_nano.ipynb).
