@@ -147,7 +147,7 @@ Let me know what tasks you'd like to see next!
 
 and STAR⭐ my repo. Thanks!
 
-2. nano-Geneformer is inspired by Andrej Karpathy's [nanoGPT](https://github.com/karpathy/nanogpt), Chris Hayduk's [minAlphaFold2](https://github.com/ChrisHayduk/minAlphaFold2), and especially Danqi Liao's [nano-scGPT](https://github.com/Danqi7/nano-scGPT).
+2. nano-Geneformer is inspired by Andrej Karpathy's [nanoGPT](https://github.com/karpathy/nanogpt) and Chris Hayduk's [minAlphaFold2](https://github.com/ChrisHayduk/minAlphaFold2).
 
 ## License
 [MIT LICENSE](LICENSE)
